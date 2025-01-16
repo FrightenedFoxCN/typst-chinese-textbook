@@ -102,6 +102,29 @@
       it
     }
   }
+
+  show raw.where(block: true): ctx => box(
+    fill: blue.lighten(80%),
+    outset: (y: 5pt, x: 10pt),
+    inset: (y: 5pt),
+    width: 90%,
+    grid(columns: (2em, 1fr),
+      grid.vline(x: 0, stroke: blue + 0.5pt, position: end),
+      column-gutter: 7pt,
+      stroke: (x, y) => if x == 1 {
+        (bottom: (
+          paint: white,
+          thickness: 0.5pt
+        ))
+      },
+      row-gutter: 5pt, 
+      ..ctx.lines.map(
+        line => (
+          [#line.number], 
+          box(height: 12pt, line)
+        )
+      ).flatten()),
+  )
   
   doc
 }
