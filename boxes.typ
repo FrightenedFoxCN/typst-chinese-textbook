@@ -12,7 +12,6 @@
     #v(2em)
     #text(size: 18pt, font: ("Times New Roman", "STHeiti"), weight: "bold", fill: blue.darken(40%), align(right)[#it.body])
   ]
-  #v(2em)
 ]
 
 #let headingbox(it) = if it.level == 1 {

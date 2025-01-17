@@ -39,6 +39,14 @@
   #counter(heading).update(0)
 ]
 
+#let my-cases = (..items) => box(
+  baseline: 50% - 0.5em,
+  width: 1fr,
+  math.cases(
+    ..items.pos().map(item => math.display(box(inset: 5pt)[#text(font: text-fonts)[#item]])),
+  ),
+)
+
 #let conf(doc) = {
   set heading (
     numbering: chinese_numbering
@@ -52,8 +60,8 @@
   }
 
   set outline(
-    depth: 2,
-    indent: 2em
+    depth: 3,
+    indent: n => 2em
   )
 
   show outline.entry: it => {
@@ -121,7 +129,7 @@
       ..ctx.lines.map(
         line => (
           [#line.number], 
-          box(height: 12pt, line)
+          box(inset: 2pt, line)
         )
       ).flatten()),
   )
