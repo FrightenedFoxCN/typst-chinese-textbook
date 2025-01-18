@@ -70,7 +70,9 @@
     text(font: title-fonts, title)
   } else {
     ""
-  }, [
+  }, 
+  breakable: true,
+  [
     #h(2em) #text(font: remark-fonts, body)
   ]
 )
