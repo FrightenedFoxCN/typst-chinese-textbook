@@ -87,3 +87,38 @@
     #h(2em) #text(font: remark-fonts, body)
   ]
 )
+
+#let partpage(name) = page(
+  header: none,
+  footer: none
+  ,{
+    align(right + horizon, [
+      #show figure.caption: it => {}
+      #context figure(
+      kind: "part",
+      supplement: [Part],
+      caption: name,
+      numbering: "A",
+      showybox(
+        frame: (
+          border-color: white,
+          body-color: blue.lighten(80%),
+          radius: 0pt,
+          thickness: 0pt,
+          title-color: rgb(0, 0, 0, 0),
+          body-inset: (top: 2em)
+        ),
+        title-style: (
+          sep-thickness: 0pt,
+          color: blue.darken(20%).desaturate(50%),
+          boxed-style: (
+            anchor: (
+              x: right,
+              y: horizon,
+            ),
+          )
+        ),
+        title: text(size: 50pt, font: (heading-num-fonts), style: "italic", [Part #numbering("A", counter("part").get().at(0))]),
+        align(right, box(inset: 2em)[#text(size: 25pt, font: title-fonts, fill: blue.darken(40%))[#name #counter("part").step()]])
+    ))])
+  })

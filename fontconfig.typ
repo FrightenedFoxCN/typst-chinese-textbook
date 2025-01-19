@@ -6,3 +6,4 @@
 #let heading-fonts = ("Times New Roman", "STHeiti")
 #let remark-fonts = ("Times New Roman", "FangSong")
 #let heading-num-fonts = ("Cambria")
+#let part-fonts = ("JetBrains Mono", "STHeiti")

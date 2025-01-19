@@ -7,6 +7,8 @@
 #set page(numbering: "1")
 #show: fix-indent()
 
+#partpage("测试部分")
+
 = 章节标题测试
 
 本章主要对章节摘要功能进行测试. 本章要求读者具备基本的 typst 编程能力和阅读能力，能够理解简单的 typst 代码.
@@ -40,3 +42,5 @@
 #pagebreak()
 
 = 第二章的内容
+
+#partpage("第二部分")

@@ -34,7 +34,7 @@
     numbering: (..nums) => "",
   )
   #show heading: it => outlinebox(it)
-  #outline(title: [目录])
+  #outline(title: [目录], target: heading.where(outlined: true).or(figure.where(kind: "part")))
   #pagebreak()
   #counter(heading).update(0)
 ]
@@ -55,13 +55,17 @@
   show heading: it => headingbox(it)
 
   show outline.entry.where(level: 1): it => {
-    v(21pt)
-    box(height: 1em, strong(it.body))
+    if it.element.func() != heading {
+      v(2em)
+      box(height: 2em, text(size: 14pt, font: part-fonts, fill: blue.darken(40%), it.body))
+    } else {
+      box(height: 1em, strong(it.body))
+    }
   }
 
   set outline(
     depth: 3,
-    indent: n => 2em
+    indent: 2em
   )
 
   show outline.entry: it => {
@@ -133,6 +137,8 @@
         )
       ).flatten()),
   )
+
+  counter("part").update(1)
   
   doc
 }
