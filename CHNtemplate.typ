@@ -56,7 +56,6 @@
 
   show outline.entry.where(level: 1): it => {
     if it.element.func() != heading {
-      v(2em)
       box(height: 2em, text(size: 14pt, font: part-fonts, fill: blue.darken(40%), it.body))
     } else {
       box(height: 1em, strong(it.body))
