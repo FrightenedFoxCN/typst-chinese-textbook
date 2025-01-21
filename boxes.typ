@@ -128,7 +128,7 @@
   frame: (
     thickness: 0pt,
     radius: 0pt,
-    inset: 0pt,
+    inset: (left: 2em, top: 2pt),
     // body-color: blue.lighten(80%)
   ),
   [
@@ -142,6 +142,7 @@
       font: code-fonts
     )
     #content
+    #v(8pt)
   ]
 )
 
@@ -151,11 +152,12 @@
   mandatory-args: none,
   selective-args: none,
   docs: none,
+  ending: true
 ) = showybox(
     frame: (
     thickness: 0pt,
     radius: 0pt,
-    inset: 0pt,
+    inset: (left: 2em, bottom: if ending {2pt} else {-6pt}, top: 2pt),
     // body-color: blue.lighten(80%)
   ),
   [
@@ -168,7 +170,7 @@
     #show strong: set text(
       font: code-fonts,
     )
-    #strong[#keyword ]#name`(`#if mandatory-args != none {
+    #text(fill: purple)[#keyword ]#name`(`#if mandatory-args != none {
       for (idx, i) in mandatory-args.enumerate() {
         emph[#i] + if idx != mandatory-args.len() - 1 {
           emph[, ]
@@ -176,14 +178,13 @@
       }
     }#if selective-args != none {
       for (idx, i) in selective-args.enumerate() {
-        text(fill: luma(128), style: "italic", [, ] + i)
+        text(fill: luma(160), style: "italic", [, ] + i)
       }
     }`)`
-
     #if docs != none {
       text(font: remark-fonts, rect(
         stroke: (left: 2pt + luma(200)),
-        inset: (top: 2pt, left: 2em),
+        inset: (top: 0pt, left: 16pt),
         outset: (left: -5pt)
       )[
         #set par(

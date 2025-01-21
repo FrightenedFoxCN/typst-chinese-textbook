@@ -49,7 +49,7 @@
 
 我们通常希望用 ```typst raw``` 格式来打印一个函数签名（signature），其中函数名为正体，而参数为斜体，此时我们不需要直接使用代码块，而应当转而使用下面的方块以便斜体正常显示：
 
-#signature[*range*(_start_, _end_[, _step_])]
+#signature[range(_start_, _end_[, _step_])]
 
 #h(2em) 也可以考虑使用更加特殊的格式，例如：
 
@@ -67,6 +67,7 @@
   "range",
   keyword: "class",
   mandatory-args: ("end", ),
+  ending: false
 )
 #funcbox(
   "range",
@@ -77,3 +78,20 @@
     这是文档，不写了.
   ]
 )
+
+#h(2em) 下面的段落可以不增加额外的缩进，但是这时与中文文档排版具备一定的不一致性，因为缩进的消失会导致这一块显得不像单独一段.
+
+=== 这是一个三级子标题
+
+代码块已经经过了调整：
+
+```python
+def get_secret(password):
+    try:
+        secret = login(password)
+    except IncorrectPassword as err:
+        # 把数据存到某个地方
+        raise
+    finally:
+        return secret
+```
