@@ -123,3 +123,74 @@
         align(right, box(inset: 2em)[#text(size: 25pt, font: title-fonts, fill: blue.darken(40%))[#name #counter("part").step()]])
     ))])
   })
+
+#let signature(content) = showybox(
+  frame: (
+    thickness: 0pt,
+    radius: 0pt,
+    inset: 0pt,
+    // body-color: blue.lighten(80%)
+  ),
+  [
+    #set text(
+      font: code-fonts,
+    )
+    #show emph: set text(
+      font: code-fonts
+    )
+    #show strong: set text(
+      font: code-fonts
+    )
+    #content
+  ]
+)
+
+#let funcbox(
+  name,
+  keyword: none,
+  mandatory-args: none,
+  selective-args: none,
+  docs: none,
+) = showybox(
+    frame: (
+    thickness: 0pt,
+    radius: 0pt,
+    inset: 0pt,
+    // body-color: blue.lighten(80%)
+  ),
+  [
+    #set text(
+      font: code-fonts,
+    )
+    #show emph: set text(
+      font: code-fonts
+    )
+    #show strong: set text(
+      font: code-fonts,
+    )
+    #strong[#keyword ]#name`(`#if mandatory-args != none {
+      for (idx, i) in mandatory-args.enumerate() {
+        emph[#i] + if idx != mandatory-args.len() - 1 {
+          emph[, ]
+        }
+      }
+    }#if selective-args != none {
+      for (idx, i) in selective-args.enumerate() {
+        text(fill: luma(128), style: "italic", [, ] + i)
+      }
+    }`)`
+
+    #if docs != none {
+      text(font: remark-fonts, rect(
+        stroke: (left: 2pt + luma(200)),
+        inset: (top: 2pt, left: 2em),
+        outset: (left: -5pt)
+      )[
+        #set par(
+          first-line-indent: 0em
+        )
+        #docs
+      ])
+    }
+  ]
+)

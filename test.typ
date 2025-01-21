@@ -44,3 +44,36 @@
 = 第二章的内容
 
 #partpage("第二部分")
+
+= 关于更多的方块
+
+我们通常希望用 ```typst raw``` 格式来打印一个函数签名（signature），其中函数名为正体，而参数为斜体，此时我们不需要直接使用代码块，而应当转而使用下面的方块以便斜体正常显示：
+
+#signature[*range*(_start_, _end_[, _step_])]
+
+#h(2em) 也可以考虑使用更加特殊的格式，例如：
+
+#funcbox(
+  "range",
+  keyword: "class",
+  mandatory-args: ("start", "end"),
+  selective-args: ("step", ),
+  docs: [返回一个从 ```python start``` 到 ```python end``` 的、步长为 ```python step``` 的迭代器. 这实际上是类 ```python range``` 的构造器，它会返回一个 ```python range``` 类的对象.]
+)
+
+#h(2em) 也可以将它们叠在一起使用：
+
+#funcbox(
+  "range",
+  keyword: "class",
+  mandatory-args: ("end", ),
+)
+#funcbox(
+  "range",
+  keyword: "class",
+  mandatory-args: ("start", "end"),
+  selective-args: ("step",),
+  docs: [
+    这是文档，不写了.
+  ]
+)
