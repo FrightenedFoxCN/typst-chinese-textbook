@@ -190,6 +190,12 @@
         #set par(
           first-line-indent: 0em
         )
+        #show emph: set text(
+          font: remark-fonts
+        )
+        #show strong: set text(
+          font: remark-fonts
+        )
         #docs
       ])
     }
