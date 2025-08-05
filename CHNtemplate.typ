@@ -3,27 +3,9 @@
 // #import "@preview/indenta:0.0.3": fix-indent
 #import "@preview/hydra:0.6.2": hydra
 
-#let chinese_number(num, standalone: false) = if num < 11 {
-    ("零", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十").at(num)
-} else if num < 100 {
-  if calc.rem(num, 10) == 0 {
-    chinese_number(calc.floor(num / 10)) + "十"
-  } else if num < 20 and standalone {
-    "十" + chinese_number(calc.rem(num, 10))
-  } else {
-    chinese_number(calc.floor(num / 10)) + "十" + chinese_number(calc.rem(num, 10))
-  }
-} else {
-  panic("Too much chapters!")
-}
-
-#let chapter_numbering(nums) = {
-    "第" + chinese_number(nums, standalone: true) + "章"
-}
-
 #let chinese_numbering(..nums, location: none) = {
     if nums.pos().len() == 1 {
-        chapter_numbering(nums.pos().first())
+        numbering("第一章", ..nums)
     } else {
         numbering("1.1", ..nums)
     }
