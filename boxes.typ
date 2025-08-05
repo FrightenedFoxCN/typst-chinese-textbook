@@ -74,7 +74,7 @@
   }, 
   breakable: true,
   [
-    #h(2em) #text(font: remark-fonts, body)
+    #text(font: remark-fonts, body)
   ]
 )
 
