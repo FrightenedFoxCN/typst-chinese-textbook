@@ -5,7 +5,7 @@
 #makecontent()
 #counter(page).update(1)
 #set page(numbering: "1")
-#show: fix-indent()
+// #show: fix-indent()
 
 #partpage("测试部分")
 
@@ -51,7 +51,7 @@
 
 #signature[range(_start_, _end_[, _step_])]
 
-#h(2em) 也可以考虑使用更加特殊的格式，例如：
+也可以考虑使用更加特殊的格式，例如：
 
 #funcbox(
   "range",
@@ -61,7 +61,7 @@
   docs: [返回一个从 ```python start``` 到 ```python end``` 的、步长为 ```python step``` 的迭代器. 这实际上是类 ```python range``` 的构造器，它会返回一个 ```python range``` 类的对象.]
 )
 
-#h(2em) 也可以将它们叠在一起使用：
+也可以将它们叠在一起使用：
 
 #funcbox(
   "range",
@@ -69,6 +69,7 @@
   mandatory-args: ("end", ),
   ending: false
 )
+
 #funcbox(
   "range",
   keyword: "class",
@@ -79,7 +80,7 @@
   ]
 )
 
-#h(2em) 下面的段落可以不增加额外的缩进，但是这时与中文文档排版具备一定的不一致性，因为缩进的消失会导致这一块显得不像单独一段.
+#noindent 下面的段落可以不增加额外的缩进，但是这时与中文文档排版具备一定的不一致性，因为缩进的消失会导致这一块显得不像单独一段.
 
 === 这是一个三级子标题
 

@@ -5,7 +5,7 @@
 ## 主要功能
 
 - 中文章节名支持，改写自 [PKUTHSS-Typst](https://github.com/pku-typst/pkuthss-typst) 中关于中文章节名设置的代码.
-- 标题的特殊设计和首段空格，主要依赖 showybox 和 indenta.
+- 标题的特殊设计，主要依赖 showybox.
 - 页眉的章节名设计，依赖于 hydra.
 - 额外的拓展块设计，依赖于 showybox.
 

@@ -1,7 +1,7 @@
 #import "boxes.typ": *
 #import "fontconfig.typ": *
-#import "@preview/indenta:0.0.3": fix-indent
-#import "@preview/hydra:0.5.1": hydra
+// #import "@preview/indenta:0.0.3": fix-indent
+#import "@preview/hydra:0.6.2": hydra
 
 #let chinese_number(num, standalone: false) = if num < 11 {
     ("零", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十").at(num)
@@ -47,8 +47,10 @@
   ),
 )
 
+#let noindent = h(-2em)
+
 #let conf(doc) = {
-  set heading (
+  set heading(
     numbering: chinese_numbering
   )
 
@@ -56,9 +58,9 @@
 
   show outline.entry.where(level: 1): it => {
     if it.element.func() != heading {
-      box(height: 2em, text(size: 14pt, font: part-fonts, fill: blue.darken(40%), it.body))
+      box(height: 2em, text(size: 14pt, font: part-fonts, fill: blue.darken(40%), it))
     } else {
-      box(height: 1em, strong(it.body))
+      box(height: 1em, strong(it))
     }
   }
 
@@ -84,16 +86,16 @@
 
   set text(font: text-fonts)
 
-  show emph: set text (font: emph-fonts,)
-  show strong: set text (font: bold-fonts)
-  show raw: set text (font: code-fonts)
+  show emph: set text(font: emph-fonts,)
+  show strong: set text(font: bold-fonts)
+  show raw: set text(font: code-fonts)
 
   set enum(indent: 2em)
   set list(indent: 2em,)
 
   set par(
     leading: 1em,
-    first-line-indent: 2em
+    first-line-indent: (amount: 2em, all: true)
   )
 
   set footnote(numbering: "①")

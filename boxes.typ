@@ -128,7 +128,7 @@
   frame: (
     thickness: 0pt,
     radius: 0pt,
-    inset: (left: 2em, top: 2pt),
+    inset: (top: 2pt),
     // body-color: blue.lighten(80%)
   ),
   [
@@ -141,7 +141,7 @@
     #show strong: set text(
       font: code-fonts
     )
-    #content
+    #h(-2em, weak: true) #content
     #v(8pt)
   ]
 )
@@ -157,7 +157,7 @@
     frame: (
     thickness: 0pt,
     radius: 0pt,
-    inset: (left: 2em, bottom: if ending {2pt} else {-6pt}, top: 2pt),
+    inset: (bottom: if ending {2pt} else {-6pt}, top: 2pt),
     // body-color: blue.lighten(80%)
   ),
   [
@@ -170,7 +170,7 @@
     #show strong: set text(
       font: code-fonts,
     )
-    #text(fill: purple)[#keyword ]#name`(`#if mandatory-args != none {
+    #text(fill: purple)[#h(-2em, weak: true) #keyword ]#name`(`#if mandatory-args != none {
       for (idx, i) in mandatory-args.enumerate() {
         emph[#i] + if idx != mandatory-args.len() - 1 {
           emph[, ]
@@ -188,7 +188,7 @@
         outset: (left: -5pt)
       )[
         #set par(
-          first-line-indent: 0em
+          first-line-indent: (amount: 0em, all: true)
         )
         #show emph: set text(
           font: remark-fonts
